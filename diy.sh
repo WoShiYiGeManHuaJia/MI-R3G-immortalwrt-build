@@ -46,6 +46,14 @@ svn_export "main" "luci-app-easytier" "package/luci-app-easytier" "https://githu
 
 mv ./package/adguardhome/* ./package/ && rm -rf ./package/adguardhome
 
+# rkp-ipid 防 IPID 检测
+git clone --depth 1 https://github.com/CHN-beta/rkp-ipid.git package/rkp-ipid
+# UA2F/rkp-ipid 需要的内核选项（ramips 所有内核版本）
+for f in target/linux/ramips/*/config-*; do
+	sed -i '/NETFILTER_NETLINK_GLUE_CT/d' "$f"
+	echo "CONFIG_NETFILTER_NETLINK_GLUE_CT=y" >> "$f"
+done
+
 # turboacc 补丁
 curl -sSL https://raw.githubusercontent.com/chenmozhijin/turboacc/luci/add_turboacc.sh -o add_turboacc.sh && bash add_turboacc.sh
 
