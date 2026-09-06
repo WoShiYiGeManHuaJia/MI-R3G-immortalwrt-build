@@ -176,16 +176,13 @@ jobs:
         # LuCI主题:
         cat >> .config <<EOF
         CONFIG_PACKAGE_luci-theme-argon=y
-CONFIG_PACKAGE_luci-app-argon-config=y
-EOF
+        CONFIG_PACKAGE_luci-app-argon-config=y
+        EOF
 
         # UA2F + rkp-ipid (防校园网多设备检测):
         cat >> .config <<EOF
-CONFIG_PACKAGE_luci-app-ua2f=y
-CONFIG_PACKAGE_kmod-rkp-ipid=y
-EOF
-
-        CONFIG_PACKAGE_luci-app-argon-config=y
+        CONFIG_PACKAGE_luci-app-ua2f=y
+        CONFIG_PACKAGE_kmod-rkp-ipid=y
         EOF
 
         # 常用软件包:
