@@ -46,8 +46,7 @@ svn_export "main" "luci-app-easytier" "package/luci-app-easytier" "https://githu
 
 mv ./package/adguardhome/* ./package/ && rm -rf ./package/adguardhome
 
-# rkp-ipid 防 IPID 检测
-git clone --depth 1 https://github.com/CHN-beta/rkp-ipid.git package/rkp-ipid
+# rkp-ipid 防 IPID 检测（源码已随仓库自带 package/rkp-ipid，已适配新内核，不再 clone 老仓库）
 # UA2F/rkp-ipid 需要的内核选项（ramips 所有内核版本）
 for f in target/linux/ramips/*/config-*; do
 	sed -i '/NETFILTER_NETLINK_GLUE_CT/d' "$f"
