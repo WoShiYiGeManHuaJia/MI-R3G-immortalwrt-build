@@ -32,6 +32,9 @@ git clone --depth 1 https://github.com/jerrykuku/luci-theme-argon package/luci-t
 git clone --depth 1 https://github.com/jerrykuku/luci-app-argon-config package/luci-app-argon-config
 git clone --depth 1 https://github.com/Openwrt-Passwall/openwrt-passwall-packages package/openwrt-passwall-packages
 git clone --depth 1 https://github.com/fw876/helloworld package/helloworld
+# 剔除 simple-obfs：2020 归档项目，源码 hash 反复失效导致编译必失败；本配置用 shadowsocks-rust/Xray，无需 obfs 混淆
+rm -rf package/helloworld/simple-obfs
+rm -rf feeds/packages/net/simple-obfs
 git clone --depth 1 https://github.com/sbwml/luci-app-openlist2 package/luci-app-openlist2
 git clone --depth 1 https://github.com/OldCoding/luci-app-adguardhome package/adguardhome
 git clone --depth 1 https://github.com/OldCoding/luci-app-filebrowser package/luci-app-filebrowser
